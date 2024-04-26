@@ -1,0 +1,221 @@
+/*------------------------------------------------------------
+	Header
+------------------------------------------------------------*/
+.c-header {
+	width: 100%;
+	padding: 0 20px;
+	border-bottom: 1px solid rgba(226,232,240,1);
+    box-shadow: 0 10px 15px -3px rgba(47,181,250,.05),0 4px 6px -2px rgba(47,181,250,.025);
+	background-color: var(--background);
+	position: fixed;
+	top: 0;
+	z-index: 9;
+	@include sp{
+		padding: 0 5px;
+	}
+	&__inner{
+		text-align: center;
+		transition: 0.3s ease-in-out;
+		max-width: 1440px;
+		margin: 0 auto;
+	}
+	&__nav{
+		&Top{
+			margin: 10px;
+			@include flex-jbetween;
+			@include sp{
+				margin: 5px;
+			}
+		}
+		&Bottom{
+			@include flex-jbetween;
+			height: 40px;
+		}
+	}
+	&__logo{
+		img{
+			width: 179px;
+			height: 40px;
+			vertical-align: middle;
+			@include sp{
+				text-align: left;
+				width: 30px;
+				height: 40px;
+			}
+		}
+	}
+	&__img{
+		img{
+			vertical-align: middle;
+		}
+	}
+	&__icon{
+		width: calc(100% - 179px);
+		@include sp{
+			width: calc(100% - 30px);
+		}
+		@include flex;
+		justify-content: flex-end;
+		li{	
+			@include flex-center;
+			width: 40px;
+			height: 40px;
+			&:hover{
+				background: rgba(227,235,246,.5);
+				cursor: pointer;
+			}
+			i{
+				color: #969696;
+				margin: 0 auto;
+			}
+
+		}
+	}
+	&__btn{
+		width: 216px;
+		@include flex;
+		justify-content: flex-start;
+		margin-left: 10px;
+		cursor: pointer;
+		align-items: center;
+		transition: opacity 0.2s linear;
+		@include sp{
+			margin-left: 0;
+		}
+		&.m-onlysp{
+			@include sp{
+				display: flex;
+				justify-content: flex-end;
+			}
+		}
+		span{
+			margin: 5px;
+		}
+		
+		&.is_active{
+			.gg-chevron-down{
+				transform: rotate(180deg);
+			}
+		}
+	}
+	&__menu{
+		width: calc(100% - 216px);
+		@include flex;
+		justify-content: flex-end;
+		align-items: center;
+		@include sp{
+			border: 1px solid rgba(226,232,240,1);
+			box-shadow: 0 10px 15px -3px rgba(47,181,250,.05),0 4px 6px -2px rgba(47,181,250,.025);
+			opacity: 0;
+			padding: 2rem;
+			visibility: hidden;
+			transition: opacity .2s linear;
+			position: fixed;
+			left: 0;
+			right: auto;
+			margin-top: 40px;
+			background-color: white;
+			width: 100%;
+			&.is_active{
+				opacity: 1;
+				visibility: visible;
+				transition: opacity 0.2s linear;
+			}
+		}
+		li{
+			@include sp{
+				width: 100%;
+			}
+			a{
+				padding: 8px 15px 0;
+				text-decoration: none;
+				font-size: 1.3rem;
+				text-transform: uppercase;
+				font-weight: 500;
+				line-height: 1.5;
+				display: inline-block;
+				color: var(--sub-color);
+				@include sp{
+					width: -webkit-fill-available;
+					padding: 8px 10px;
+					border: 1px solid rgba(226,232,240,1);
+					margin-bottom: 20px;
+				}
+				@include pc{
+					&::after{
+						content: '';
+						display: block;
+						width: 0;
+						height: 1px;
+						background: #000;
+						transition: width .3s;
+						margin-top: 3px;
+					}
+					&:hover{
+						color: #000;
+						&::after{
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+	&__togge{
+		position: fixed;
+		left: auto;
+		right: auto;
+		@include flex;
+		background-color: white;
+		padding: 2rem;
+		width: 100%;
+		z-index: 10;
+		max-width: 1440px;
+		border: 1px solid rgba(226,232,240,1);
+		box-shadow: 0 10px 15px -3px rgba(47,181,250,.05),0 4px 6px -2px rgba(47,181,250,.025);
+		opacity: 0;
+		visibility: hidden;
+		@include sp{
+			left: 0;
+		}
+		&.is_active{
+			opacity: 1;
+			visibility: visible;
+			transition: .2s linear;
+			position: static;
+		}
+		a{
+			text-decoration: none;
+			font-size: 1.5rem;
+			font-weight: 600;
+		}
+		li {
+			width: calc(25% - 16px);
+			margin-left: 8px;
+			margin-right: 8px;
+			@include tb{
+				width: calc(30.3% - 16px);
+			}
+			@include sp{
+				width: 100%;
+			}
+			a{
+				color: #000;
+				font-weight: 500;
+				@include flex;
+				align-items: center;
+				padding: 8px 10px;
+				border: 1px solid rgba(226,232,240,1);
+				margin-bottom: 20px;
+				img{
+					width: 30px;
+					height: 30px;
+					border-radius: 3px;
+				}
+				span{
+					padding-left: 8px;
+				}
+			}
+		}
+	}
+}

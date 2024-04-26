@@ -1,0 +1,71 @@
+/*------------------------------------------------------------
+	Title
+------------------------------------------------------------*/
+.m-ttl2{
+	border-left: 4px solid #3199d5;
+    font-size: 2rem;
+	color: $color1;
+    padding-left: 16px;
+	text-transform: uppercase;
+	margin: 15px 0;
+	@include sp{
+		font-size: 1.5rem;
+	}
+}
+.m-title{
+	margin-bottom: .5rem;
+	overflow: hidden;
+    font-size: 1.5rem;
+	line-height: 1.5;
+}
+.tab{
+	@include flex-jbetween;
+	border-bottom: 1px solid slategrey;
+	margin-bottom: 2rem;
+	&__menu{
+		@include flex;
+		a{
+			@include flex;
+			align-items: center;
+			text-decoration: none;
+			font-size: 1.4rem;
+			font-weight: 600;
+			color: var(--sub-color);
+			padding: 0 8px;
+			@include sp{
+				font-size: 1rem;
+				padding: 0 8px 0 0;
+			}
+			i{
+				margin-right: 8px;
+				@include sp{
+					margin-right: 3px;
+				}
+			}
+			span {
+				padding-left: 3px;
+			}
+			&::after{
+				content: '';
+				display: block;
+				width: 0;
+				height: 2px;
+				background: #3199d5;
+				transition: width .3s;
+			}
+			&:hover{
+				color: #3199d5;
+				&::after{
+					width: 100%;
+				}
+				path{
+					fill: #3199d5;
+				}
+			}
+
+		}
+	}
+	.m-ttl2{
+		margin-bottom: 0;
+	}
+}
